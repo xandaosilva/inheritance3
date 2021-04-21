@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Inheritance3.Entities;
+using Inheritance3.Entities.Enums;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
 namespace Inheritance3
 {
@@ -7,6 +10,8 @@ namespace Inheritance3
         static void Main(string[] args)
         {
             CultureInfo CI = CultureInfo.InvariantCulture;
+
+            List<Shape> list = new List<Shape>();
 
             Console.Write("Enter the number of shapes: ");
             int n = int.Parse(Console.ReadLine());
@@ -17,7 +22,7 @@ namespace Inheritance3
                 Console.Write("Rectangle or Circle (r/c)? ");
                 char ch = char.Parse(Console.ReadLine());
                 Console.Write("Color (Black/Blue/Red): ");
-                string color = Console.ReadLine();
+                Color color = Enum.Parse<Color>(Console.ReadLine());
 
                 if (ch == 'r')
                 {
@@ -25,18 +30,20 @@ namespace Inheritance3
                     double width = double.Parse(Console.ReadLine(), CI);
                     Console.Write("Height: ");
                     double height = double.Parse(Console.ReadLine(), CI);
+                    list.Add(new Rectangle(width, height, color));
                 }
                 else
                 {
                     Console.Write("Radius: ");
                     double radius = double.Parse(Console.ReadLine(), CI);
+                    list.Add(new Circle(radius, color));
                 }
+            }
 
-                Console.WriteLine("\nSHAPE AREAS:");
-                foreach ()
-                {
-                    Console.WriteLine();
-                }
+            Console.WriteLine("\nSHAPE AREAS:");
+            foreach (Shape s in list)
+            {
+                Console.WriteLine(s.Area().ToString("F2", CI));
             }
         }
     }

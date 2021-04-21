@@ -13,6 +13,7 @@ namespace Inheritance3.Entities
         {
             Radius = radius;
         }
+
         public override double Area()
         {
             return Math.PI * Math.Pow(Radius, 2);
