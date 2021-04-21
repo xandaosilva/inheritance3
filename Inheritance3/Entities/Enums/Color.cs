@@ -6,8 +6,8 @@ namespace Inheritance3.Entities.Enums
 {
     enum Color
     {
-        BLACK = 0,
-        RED = 1,
-        BLUE = 2
+        BLACK,
+        RED1,
+        BLUE2
     }
 }
